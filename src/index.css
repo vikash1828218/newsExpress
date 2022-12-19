@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+
+}
+
+.hg {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.Hover:hover {
+  text-decoration: underline;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.nav {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 1
+}
+
+.dropBox:hover {
+  background-color: gray;
+  color: whitesmoke;
+}
+
+#topScroller {
+  color: whitesmoke;
+  background-color: rgb(43, 43, 43);
+  border-radius: 9px;
+  display: inline-block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 3px 4px;
+  margin-right: 1.5em;
+  margin-bottom: 3em;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#topScroller:hover {
+  color: black;
+  background-color: #f4f4f4;
+  border: 1px solid black;
+  box-shadow: 2px 2px 1px 1px rgb(109, 109, 109);
+
+
+}
+
+.topHead {
+  font-family: "'Times New Roman', Times, serif";
+  font-size: 35px;
+  text-align: center;
+}
+
+@media only screen and (max-width:426px) {
+  .topHead {
+    font-size: 1.1em;
+    font-family: "'Times New Roman', Times, serif";
+    text-align: center;
+  }
+}
+
+.about {
+  color: "black";
+  background-color: "#f4f4f4";
+  margin-top: "8em"
+}
