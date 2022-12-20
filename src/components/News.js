@@ -16,7 +16,7 @@ export default class News extends Component {
   }
 
   news = []
-  identity=1
+  identity = 1
   constructor() {
     super();
     this.state = {
@@ -42,7 +42,7 @@ export default class News extends Component {
 
   newsUpdate = async () => {
     this.props.loaderPrg(10);
-    let url = `https://newsapi.org/v2/top-headlines?category=${this.props.category}&apiKey=dbd9bad94b33424782ac9e7e017b4fa6&page=${this.state.pageNum}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?category=${this.props.category}&country=in&apiKey=f6277503b399424fb61de192041d58e7&page=${this.state.pageNum}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     this.props.loaderPrg(40);
@@ -59,7 +59,7 @@ export default class News extends Component {
 
 
   componentDidMount() {
-    document.title = this.capiatalizeFirstIndex(this.props.category) + '-' + this.props.channelName 
+    document.title = this.capiatalizeFirstIndex(this.props.category) + '-' + this.props.channelName
     this.newsUpdate();
   }
 
@@ -69,8 +69,10 @@ export default class News extends Component {
   }
 
   fetchMoreData = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?category=${this.props.category}&apiKey=dbd9bad94b33424782ac9e7e017b4fa6&page=${this.state.pageNum}&pageSize=${this.props.pageSize}`;
-    this.setState({ loading: true });
+   this.setState({
+      pageNum: this.state.pageNum + 1
+    })
+    let url = `https://newsapi.org/v2/top-headlines?category=${this.props.category}&apiKey=f6277503b399424fb61de192041d58e7&page=${this.state.pageNum}&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let news = await data.json();;
     this.setState({
@@ -95,7 +97,7 @@ export default class News extends Component {
 
 
   render() {
-    
+
     return (
       <>
 
@@ -106,7 +108,7 @@ export default class News extends Component {
         <InfiniteScroll
           dataLength={this.state.news.length}
           next={this.fetchMoreData}
-          hasMore={this.state.news.length !== this.state.totalResults}
+          hasMore={this.state.news.length <= this.state.totalResults}
           loader={<Loader />}
           scrollableTarget="scrollableDiv"
         >
