@@ -72,7 +72,7 @@ export default class News extends Component {
    this.setState({
       pageNum: this.state.pageNum + 1
     })
-    let url = `https://newsapi.org/v2/top-headlines?category=${this.props.category}&apiKey=f6277503b399424fb61de192041d58e7&page=${this.state.pageNum}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?category=${this.props.category}&apiKey=f6277503b399424fb61de192041d58e7&page=${this.state.pageNum}`;
     let data = await fetch(url);
     let news = await data.json();;
     this.setState({
